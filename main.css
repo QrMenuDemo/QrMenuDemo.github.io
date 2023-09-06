@@ -1,0 +1,75 @@
+html, body {
+    height: 100%;
+    font-family: "Open Sans", sans-serif;
+    background-color: #1A1819;
+    color: #F4EBE8; 
+    font-family: 'Noto Serif Khojki', serif;
+    font-family: 'Raleway', sans-serif;
+    font-family: 'Roboto Slab', serif;
+  }
+  .container{
+    margin-bottom: 45px;
+    width: auto;
+    height: auto;
+  }
+  .btn-container{
+    margin: 2%;
+    width: 500px;
+    height: 100px;
+  }
+  .navbar_color{
+    -webkit-box-shadow: 0px 5px 65px 4px rgba(66,66,66,1);
+    -moz-box-shadow: 0px 5px 65px 4px rgba(66,66,66,1);
+    box-shadow: 0px 5px 65px 4px rgba(66,66,66,1);
+  }
+  .container_shadow{
+    -webkit-box-shadow: 0px 5px 65px 4px rgba(0,0,0,0.45);
+    -moz-box-shadow: 0px 5px 65px 4px rgba(0,0,0,0.45);
+    box-shadow: 0px 5px 65px 4px rgba(0,0,0,0.45);
+  }
+  a{
+    color: black;
+  }
+  li{
+    color: black;
+  }
+
+  
+  .btn-outline{
+    border:  2px solid rgb(57, 57, 216);
+    color: rgb(129, 129, 129);
+  }
+  .btn-text{
+    color: #F4EBE8; 
+  }
+  .text_shadow{
+    text-shadow: -6px 6px 4px rgba(244,235,232,0.68);
+  }
+  .h1-shadow {
+    text-shadow: 6px 6px 4px rgba(244,235,232,0.66);
+  }
+
+  .card-spec{
+    background-color: #1A1819;
+    -webkit-box-shadow: 0px 48px 300px -120px rgba(185,186,187,1);
+    -moz-box-shadow: 0px 48px 300px -120px rgba(185,186,187,1);
+    box-shadow: 0px 48px 300px -120px rgba(185,186,187,1);
+  }
+
+  /* Apply basic styles to the button */
+.rounded-button {
+  position: fixed; /* Fixed position to keep it in place */
+  right: 20px; /* Adjust the left distance as needed */
+  bottom: 20px; /* Adjust the bottom distance as needed */
+  z-index: 999; /* Ensure it's above other content */
+}
+
+.rounded-button button {
+  padding: 10px 20px;
+  border-radius: 50px; /* Create a rounded shape */
+  background-color: #201f20; /* Button background color */
+  color: #fff; /* Text color */
+  border: none;
+  cursor: pointer;
+}
+
