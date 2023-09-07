@@ -13,6 +13,7 @@
         if (sectionToScroll.style.display === 'none' || sectionToScroll.style.display === '') {
             sectionToScroll_soğuk.style.display ='none';
             sectionToScroll_sıcak.style.display ='none';
+
             sectionToScroll.style.display = 'block';
         } else {
             sectionToScroll.style.display = 'none';
@@ -62,23 +63,23 @@
 
 
     const searchInput = document.getElementById('searchInput');
-    const cards = document.querySelectorAll('.card');
-
-searchInput.addEventListener('input', () => {
-    const searchTerm = searchInput.value.toLowerCase();
-
-    cards.forEach((card) => {
-        const cardTitle = card.querySelector('.card-title').textContent.toLowerCase();
-        if (cardTitle.includes(searchTerm)) {
-            card.style.display = 'block'; // Show matching card
-        } else {
-            card.style.display = 'none'; // Hide non-matching card
-        }
+    const cards = document.querySelectorAll('#kahvaltı_card'); // Use querySelectorAll to select all cards
+    
+    searchInput.addEventListener('input', () => {
+        const searchTerm = searchInput.value.toLowerCase();
+    
+        cards.forEach((card) => {
+            const cardTitle = card.querySelector('.card-title').textContent.toLowerCase(); // Use querySelector to select card title
+            if (cardTitle.includes(searchTerm)) {
+                card.style.display = 'block'; // Show matching card
+            } else {
+                card.style.display = 'none'; // Hide non-matching card
+            }
+        });
     });
-});
 
 const searchInput_soguk = document.getElementById('searchInput_soguk');
-const cards_soguk = document.querySelectorAll('.card');
+const cards_soguk = document.querySelectorAll('#soguk-card');
 
 searchInput_soguk.addEventListener('input', () => {
 const searchTerm = searchInput_soguk.value.toLowerCase();
@@ -94,7 +95,7 @@ cards_soguk.forEach((card) => {
 });
 
 const searchInput_sıcak = document.getElementById('searchInput_sıcak');
-const cards_sıcak = document.querySelectorAll('.card');
+const cards_sıcak = document.querySelectorAll('#sıcak-card');
 
 searchInput_sıcak.addEventListener('input', () => {
 const searchTerm = searchInput_sıcak.value.toLowerCase();
@@ -133,6 +134,6 @@ function go_header(){
     sectionToScroll_sıcak.style.display ='none';
     sectionToScroll_soğuk.style.display ='none';
     sectionToScroll.style.display = 'none';
-    sectiontoscroll_header.scrollIntoView({ behavior: 'smooth' });
 
+    sectiontoscroll_header.scrollIntoView({ behavior: 'smooth' });
 }

@@ -74,16 +74,16 @@
         </div>
         <div class="row h-100 align-items-center py-4">
             <div class="col-lg-4 d-flex justify-content-center">
-                <div class="card card-spec m-4" style="width: 18rem;">
+                <div class="card card-spec m-4" style="width: 18rem;" id="kahvaltı_card">
                     <img src="demo.jpg" class="card-img-top" height="200px" width="200px"  alt="...">
                     <div class="card-body">
-                      <h5 class="card-title">Tek kişilik kahvaltı tabağı</h5>
+                      <h5 class="card-title" id="kahvaltı-card-title">Tek kişilik kahvaltı tabağı</h5>
                       <p class="card-text">225.0 TL</p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 d-flex justify-content-center">
-                <div class="card card-spec m-4" style="width: 18rem;">
+                <div class="card card-spec m-4" style="width: 18rem;" id="kahvaltı_card">
                     <img src="demo.jpg" class="card-img-top"  height="200px" width="200px"  alt="...">
                     <div class="card-body">
                       <h5 class="card-title">Serpme Kahvaltı (2 kişilik)</h5>
@@ -91,7 +91,7 @@
                     </div>
                 </div>            </div>
             <div class="col-lg-4 d-flex justify-content-center">
-                <div class="card card-spec m-4" style="width: 18rem;">
+                <div class="card card-spec m-4" style="width: 18rem;" id="kahvaltı_card">
                     <img src="demo.jpg" class="card-img-top" height="200px" width="200px" alt="...">
                     <div class="card-body">
                       <h5 class="card-title">Sahanda yumurta</h5>
@@ -120,7 +120,7 @@
         </div>
         <div class="row h-100 align-items-center py-4">
             <div class="col-lg-4 d-flex justify-content-center">
-                <div class="card card-spec m-4" style="width: 18rem;">
+                <div class="card card-spec m-4" style="width: 18rem;" id="soguk-card">
                     <img src="demo.jpg" class="card-img-top" height="200px" width="200px"  alt="...">
                     <div class="card-body">
                       <h5 class="card-title">Kola</h5>
@@ -129,7 +129,7 @@
                 </div>
             </div>
             <div class="col-lg-4 d-flex justify-content-center">
-                <div class="card card-spec m-4" style="width: 18rem;">
+                <div class="card card-spec m-4" style="width: 18rem;" id="soguk-card">
                     <img src="demo.jpg" class="card-img-top"  height="200px" width="200px"  alt="...">
                     <div class="card-body">
                       <h5 class="card-title">İce tea</h5>
@@ -137,7 +137,7 @@
                     </div>
                 </div>            </div>
             <div class="col-lg-4 d-flex justify-content-center">
-                <div class="card card-spec m-4" style="width: 18rem;">
+                <div class="card card-spec m-4" style="width: 18rem;" id="soguk-card">
                     <img src="demo.jpg" class="card-img-top" height="200px" width="200px" alt="...">
                     <div class="card-body">
                       <h5 class="card-title">X,Y,Z</h5>
@@ -165,16 +165,32 @@
         </div>
         <div class="row h-100 align-items-center py-4">
             <div class="col-lg-4 d-flex justify-content-center">
-                <div class="card card-spec m-4" style="width: 18rem;">
+                <div class="card card-spec m-4" style="width: 18rem; " id="sıcak-card"> 
                     <img src="demo.jpg" class="card-img-top" height="200px" width="200px"  alt="...">
                     <div class="card-body">
-                      <h5 class="card-title">Çay</h5>
-                      <p class="card-text">Küçük : 5.0 TL <br> <hr> Orta : 10.0 TL <br> <hr> Kupa : 15.0 tl</p>
+                    <div class="justify-content-center d-flex">
+                        <h5 class="card-title">Çay</h5>
+
+                    </div>
+                      <div class="dropdown">
+                        <button class="btn btn-text dropdown-toggle m-5" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                          Çay seçenekleri
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                        <li><hr class="dropdown-divider"></li>
+                          <li><a class="dropdown-item" >Küçük : 5.0 TL</a></li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li><a class="dropdown-item" >Orta : 10.0 TL </a></li>
+                          <li><hr class="dropdown-divider"></li>
+                          <li><a class="dropdown-item" >Kupa : 15.0 tl</a></li>
+                          <li><hr class="dropdown-divider"></li>
+                        </ul>
+                      </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 d-flex justify-content-center">
-                <div class="card card-spec m-4" style="width: 18rem;">
+                <div class="card card-spec m-4" style="width: 18rem; "id="sıcak-card">
                     <img src="demo.jpg" class="card-img-top"  height="200px" width="200px"  alt="...">
                     <div class="card-body">
                       <h5 class="card-title">Kahve</h5>
@@ -182,7 +198,7 @@
                     </div>
                 </div>            </div>
             <div class="col-lg-4 d-flex justify-content-center">
-                <div class="card card-spec m-4" style="width: 18rem;">
+                <div class="card card-spec m-4" style="width: 18rem;" id="sıcak-card">
                     <img src="demo.jpg" class="card-img-top" height="200px" width="200px" alt="...">
                     <div class="card-body">
                       <h5 class="card-title">X,Y,Z</h5>
