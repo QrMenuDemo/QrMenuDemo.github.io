@@ -5,6 +5,8 @@
     const sectionToScroll_soğuk = document.getElementById('soğuk_sec');
     const toggleButton_sıcak = document.getElementById('sıcak_but');
     const sectionToScroll_sıcak = document.getElementById('sıcak_sec');
+    const go_button = document.getElementById('go');
+
     // Add a click event listener to the button
     toggleButton.addEventListener('click', () => {
         // Toggle the display property of the section
@@ -13,6 +15,7 @@
         if (sectionToScroll.style.display === 'none' || sectionToScroll.style.display === '') {
             sectionToScroll_soğuk.style.display ='none';
             sectionToScroll_sıcak.style.display ='none';
+            go_button.style.display ='block';
 
             sectionToScroll.style.display = 'block';
         } else {
@@ -32,6 +35,7 @@
         if (sectionToScroll_soğuk.style.display === 'none' || sectionToScroll_soğuk.style.display === '') {
             sectionToScroll.style.display ='none';
             sectionToScroll_sıcak.style.display ='none';
+            go_button.style.display ='block';
 
             sectionToScroll_soğuk.style.display = 'block';
         } else {
@@ -47,6 +51,7 @@
     toggleButton_sıcak.addEventListener('click', () => {
         sectionToScroll.style.display == 'none';
         sectionToScroll_soğuk.style.display ='none';
+        go_button.style.display ='block';
 
         // Toggle the display property of the section
         if (sectionToScroll_sıcak.style.display === 'none' || sectionToScroll_sıcak.style.display === '') {
@@ -110,22 +115,6 @@ cards_sıcak.forEach((card) => {
 });
 });
 
-function filterTema() {
-    var input, filter, buttons, button, i;
-    input = document.getElementById("searchInput_tema");
-    filter = input.value.toUpperCase();
-    buttons = document.querySelectorAll("#tema button");
-
-    for (i = 0; i < buttons.length; i++) {
-        button = buttons[i];
-        if (button.innerHTML.toUpperCase().indexOf(filter) > -1) {
-            button.style.display = "";
-        } else {
-            button.style.display = "none";
-        }
-    }
-}
-
 function go_header(){
     const sectionToScroll = document.getElementById('Kahvaltı_sec');
     const sectionToScroll_soğuk = document.getElementById('soğuk_sec');
@@ -134,6 +123,7 @@ function go_header(){
     sectionToScroll_sıcak.style.display ='none';
     sectionToScroll_soğuk.style.display ='none';
     sectionToScroll.style.display = 'none';
+    go_button.style.display ='none';
 
-    sectiontoscroll_header.scrollIntoView({ behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }

@@ -1,65 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ardıç kafe</title>
+    <title>ROCS</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>   
-    <link rel="stylesheet" href="main.css">
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script> 
+    <link rel="stylesheet" href="./main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Khojki:wght@600&family=Raleway:wght@200&family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@500&family=Lemonada:wght@500&family=Noto+Serif+Khojki:wght@600&family=Raleway:wght@200&family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <div class="rounded-button">
-        <button href="#Header" id="go" onclick="go_header()">Menü'ye gider</button>
+        <button href="#less_food" id="go" onclick="go_header()"  style="display: none;" class="mb-4" >☝️</button>
     </div>
-<!--Header section-->
-<section id="Header">
-    <div class="container  container_shadow py-5">
-        <div class="row h-100 align-items-center py-4">
-            <div class="col-lg-12 d-flex justify-content-center">
-                <img src="logo.jpg" class="img-thumbnail rounded mb-4" alt="..."><br>
-            </div>
-            <div class="col-lg-12 d-flex justify-content-center"> 
-                <h1 class="h1-shadow">Ardıç Kitabevi & Kafe</h1> <br>
-            </div>
-            <div class="col-lg-12 d-flex justify-content-center">
-                <h5 class="text_shadow">Ardıç'ın içinde, küçük bir şehirdir..</h5>
-            </div>
+    <div class="search-button"> 
+        <p class="d-inline-flex gap-1" id="myButton">
+            <button  data-bs-toggle="collapse" href="#collapseWidthExample" role="button" aria-expanded="false" aria-controls="collapseWidthExample">
+                🔍️
+            </button>
+        </p>
+        <div class="collapse" id="collapseWidthExample">
+            <input type="search" id="myInput" class="form-control mb-4" placeholder="Ne içmek istersiniz" >
+
         </div>
+        
     </div>
-</section>
-<!--Header section-->
-<!--Header section-->
+    <script>
+    document.addEventListener('click', function (e) {
+        var collapseWidthExample = document.getElementById('collapseWidthExample');
+        var myInput = document.getElementById('myInput');
+
+        // Eğer tıklanan element collapseWidthExample içinde değilse ve collapse görünüyorsa
+        if (!collapseWidthExample.contains(e.target) && collapseWidthExample.classList.contains('show')) {
+            collapseWidthExample.classList.remove('show'); // Collapse'ı kapat
+            myInput.value = ''; // Input değerini sıfırla
+
+            // Bu satırı ekleyerek collapse'ın kapanmasını simüle edebilirsiniz
+            e.stopPropagation();
+
+        }
+    });
+        // Get references to the input and button elements
+        const input = document.getElementById('myInput');
+        const button = document.getElementById('myButton');
+    
+        // Add a click event listener to the button
+        button.addEventListener('click', () => {
+            // Focus on the input field when the button is clicked
+            input.focus();
+        });
+
+    // Card-title'ları içeren bir dizi oluşturuyoruz
+
+    // Card-title'ları ve ilgili section'ları içeren bir dizi oluşturuyoruz
+    const cardData = [
+        { title: "tek kişilik kahvaltı tabağı", section: 'Kahvaltı_sec' },
+        { title: "serpme kahvaltı (2 kişilik)", section: 'Kahvaltı_sec' },
+        { title: "sahanda yumurta", section: 'Kahvaltı_sec' },
+        { title: "kola", section: 'soğuk_sec' },
+        { title: "ice tea", section: 'soğuk_sec' },
+        { title: "x,y,z", section: 'soğuk_sec' },
+        { title: "çay", section: 'sıcak_sec' },
+        { title: "kahve", section: 'sıcak_sec' },
+        { title: "x,y,z", section: 'sıcak_sec' }
+    ];
+
+    // Input alanına bir değer girildiğinde bu fonksiyon çalışacak
+    input.addEventListener('input', () => {
+        // Input değerini alıyoruz ve küçük harfe dönüştürüyoruz
+        const inputValue = input.value.toLowerCase();
+
+        let found = false; // Eşleşme durumunu izlemek için bir bayrak kullanıyoruz
+
+        // Her bir "section" için eşleşen bir "card-title" var mı kontrol ediyoruz
+        const sections = ['Kahvaltı_sec', 'soğuk_sec', 'sıcak_sec'];
+
+        for (const section of sections) {
+            // İlgili section içindeki card-title'ları buluyoruz
+            const sectionCards = cardData.filter(card => card.section === section);
+
+            for (const card of sectionCards) {
+                const title = card.title.toLowerCase();
+                if (title.includes(inputValue)) {
+                    found = true;
+                    // Eşleşen bir card-title bulunduğunda önce tüm "section"ları gizliyoruz
+                    for (const hideSection of sections) {
+                        document.getElementById(hideSection).style.display = "none";
+                    }
+                    // Sonra eşleşen "section"ı görünür hale getiriyoruz
+                    document.getElementById(section).style.display = "block";
+                    
+                    // Eşleşen "section"ın başına kaydırma yapmak için scrollTop kullanıyoruz
+                    const sectionElement = document.getElementById(section);
+                    window.scrollTo({
+                        top: sectionElement.offsetTop,
+                        behavior: 'smooth'
+                    });
+                    document.getElementById("go").style.display = "block";
+
+                    break;
+                }
+            }
+
+            if (found) {
+                break; // Eşleşen bir card-title bulunduğunda döngüyü sonlandırıyoruz
+            }
+        }
+
+        // Eşleşen bir card-title yoksa ilgili "section" ı gizliyoruz
+        if (!found) {
+            for (const section of sections) {
+                document.getElementById(section).style.display = "none";
+                document.getElementById("go").style.display = "none";
+            }
+            // Kullanıcıya bir uyarı veriyoruz
+
+        }
+
+        // Input alanı boşsa bütün "sec" bölümlerini gizliyoruz
+        if (inputValue === "") {
+            for (const section of sections) {
+                document.getElementById(section).style.display = "none";
+                document.getElementById("go").style.display = "none";
+
+            }
+        }
+    });
+</script>
+
+    <!--Header section-->
 <section id="less_food">
-    <div class="container  container_shadow py-5">
-        <div class="row h-100 align-items-center py-4">
-            <div class="col-lg-12 d-flex justify-content-between">
-                <h1 class="px-4">Menü</h1>
-                <div class="mb-4 ">
-                    <input type="search" id="searchInput_tema" class="form-control" placeholder="Ne içmek istersiniz" onkeyup="filterTema()">
-                </div>
-            </div>
-            <hr>
-        </div>
-        <div class="row h-100 align-items-center">
-            <div class="col-lg-4 d-flex justify-content-center" id="tema" >
-                <button class=" btn-container btn btn-text " id="Kahvaltı_but"> Kahvaltı</button>
+    <div class="container-header container_shadow" style="display: block;">
+            <div class="col-lg-12">
+                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" data-bs-touch="true">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <div class="row h-100 d-flex justify-content-center">
+                            <div class="col-lg-4 d-flex justify-content-evenly" id="tema" >
+                                <button class=" btn-container btn btn-text " id="Kahvaltı_but">Kahvaltı</button>
+                                <button class=" btn-container btn btn-text " id="soğuk_but">Soğuk İçecek</button>
+        
+                            </div>
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <div class="row h-100 d-flex justify-content-center">
+                            <div class="col-lg-4 d-flex justify-content-center" id="tema">
+                                <button class=" btn-container btn btn-text " id="sıcak_but">Sıcak İçecek</button> 
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
             </div>
 
-            <div class="col-lg-4 d-flex justify-content-center" id="tema">
-                <button class=" btn-container btn btn-text " id="soğuk_but">Soğuk İçecek</button>
-            </div>
-            <div class="col-lg-4 d-flex justify-content-center" id="tema" >
-                <button class=" btn-container btn btn-text " id="sıcak_but">Sıcak İçecek</button> 
-            </div>
 
         </div>
     </div>
 </section>
+
+
 <!--Header section-->
 <section id="Kahvaltı_sec" style="display: none;">
     <div class="container  container_shadow py-5">
@@ -177,13 +281,9 @@
                           Çay seçenekleri
                         </button>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-                        <li><hr class="dropdown-divider"></li>
                           <li><a class="dropdown-item" >Küçük : 5.0 TL</a></li>
-                          <li><hr class="dropdown-divider"></li>
                           <li><a class="dropdown-item" >Orta : 10.0 TL </a></li>
-                          <li><hr class="dropdown-divider"></li>
                           <li><a class="dropdown-item" >Kupa : 15.0 tl</a></li>
-                          <li><hr class="dropdown-divider"></li>
                         </ul>
                       </div>
                     </div>
@@ -214,6 +314,25 @@
 </section>
 <!--Soğuk içecek section-->
 <script src="./main.js"></script>
+
+
+<!--Header section-->
+<section id="Header">
+    <div class="container  container_shadow py-5">
+        <div class="row h-100 align-items-center py-4">
+            <div class="col-lg-12 d-flex justify-content-center">
+                <img src="logo.jpg" class="img-thumbnail rounded mb-4" alt="..."><br>
+            </div>
+            <div class="col-lg-12 d-flex justify-content-center"> 
+                <h1 class="h1-shadow">Ardıç Kitabevi & Kafe</h1> <br>
+            </div>
+            <div class="col-lg-12 d-flex justify-content-center">
+                <h5 class="text_shadow">Ardıç'ın içinde, küçük bir şehirdir..</h5>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Header section-->
 
 </body>
 </html>
